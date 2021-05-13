@@ -1,5 +1,6 @@
 # coffee-roasters
-
+Coffee Roasters is a high-end brewing brand.  
+Design by frontendmentor.io.
 ## Project setup
 ```
 npm install
