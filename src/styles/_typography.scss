@@ -1,0 +1,36 @@
+@import "/_functions.scss";
+
+
+.title-big {
+  font-size: rem-calc(150);
+  line-height: rem-calc(72);
+  text-transform: lowercase;
+  font-family: Fraunces, serif;
+}
+
+.heading {
+
+  &-1 {
+    font-size: rem-calc(72);
+    line-height: rem-calc(72);
+    font-family: Fraunces, serif;
+  }
+
+  &-2 {
+    font-size: rem-calc(40);
+    line-height: rem-calc(48);
+    font-family: Fraunces, serif;
+  }
+
+  &-3 {
+    font-size: rem-calc(32);
+    line-height: rem-calc(36);
+    font-family: Fraunces, serif;
+  }
+
+  &-4 {
+    font-size: rem-calc(24);
+    line-height: rem-calc(32);
+    font-family: Fraunces, serif;
+  } 
+}
