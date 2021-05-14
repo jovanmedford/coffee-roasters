@@ -58,3 +58,5 @@
     @if ($value == 0rem) { $value: 0; }
     @return $value;
   }
+
+  $rem-base: 16px;
