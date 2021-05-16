@@ -1,18 +1,27 @@
 <template>
   <div class="home">
-    <Header></Header>
+    <Header />
+    <BaseHero
+      copy="Great coffee made simple."
+      text="Start your mornings with the world’s best coffees. 
+            Try our expertly curated artisan coffees from our best roasters 
+            delivered directly to your door, at your schedule."
+      button-text="Create your plan"
+    />
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
 
-import Header from '@/components/Header.vue';
+import Header from "@/components/Header.vue";
+import BaseHero from "@/components/BaseHero.vue";
 
 export default {
   name: "Home",
   components: {
-    Header
+    Header,
+    BaseHero,
   },
 };
 </script>

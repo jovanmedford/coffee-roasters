@@ -1,0 +1,114 @@
+<template>
+  <section class="hero">
+    <div class="hero__overlay"></div>
+    <div class="hero__content">
+      <h1 class="heading-2 hero__copy">{{ copy }}</h1>
+      <p class="hero__text">
+        {{ text }}
+      </p>
+      <button class="btn">{{ buttonText }}</button>
+    </div>
+  </section>
+</template>
+
+<script>
+export default {
+  props: {
+    copy: {
+      type: String,
+      required: true,
+      default: "Coffee done right.",
+    },
+    text: {
+      type: String,
+      required: true,
+      default: "We love to serve you!",
+    },
+    buttonText: {
+      type: String,
+      default: "",
+    },
+  },
+};
+</script>
+
+<style lang="scss">
+.hero {
+  margin: 0 rem-calc(24);
+  text-align: center;
+  position: relative;
+  background-image: url(../assets/home/mobile/image-hero-coffeepress.jpg);
+  background-size: cover;
+  border-radius: 10px;
+
+  @media screen and (min-width: $breakpoint-tablet) {
+    text-align: left;
+    margin: 0 rem-calc(40);
+    background-image: url(../assets/home/tablet/image-hero-coffeepress.jpg);
+  }
+
+  @media screen and (min-width: $breakpoint-desktop) {
+    background-image: url(../assets/home/desktop/image-hero-coffeepress.jpg);
+  }
+}
+
+.hero__content {
+  position: relative;
+  z-index: 100;
+  padding: rem-calc(100 24);
+
+  @media screen and (min-width: $breakpoint-tablet) {
+    max-width: rem-calc(398);
+    padding: rem-calc(104 0 104 56);
+  }
+
+  @media screen and (min-width: $breakpoint-desktop) {
+    max-width: rem-calc(493);
+  }
+}
+
+.hero__copy {
+  color: white;
+  margin-bottom: rem-calc(24);
+
+  @media screen and (min-width: $breakpoint-tablet) {
+    font-size: rem-calc(48);
+  }
+
+  @media screen and (min-width: $breakpoint-desktop) {
+    font-size: rem-calc(72);
+    line-height: rem-calc(80);
+  }
+}
+
+.hero__text {
+  color: white;
+  line-height: rem-calc(25);
+  margin-bottom: rem-calc(40);
+  max-width: rem-calc(480);
+  font-size: rem-calc(16);
+}
+
+.hero__overlay {
+  background-color: black;
+  position: absolute;
+  opacity: 5%;
+  width: 100%;
+  height: 100%;
+
+  @media screen and (min-width: $breakpoint-tablet) {
+    display: none;
+  }
+}
+
+.btn {
+  padding: rem-calc(16 32);
+  background-color: $color-primary;
+  border: none;
+  color: white;
+  font-weight: 700;
+  font-size: rem-calc(18);
+  font-family: Fraunces;
+  border-radius: 6px;
+}
+</style>
