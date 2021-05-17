@@ -53,7 +53,7 @@ export default {
 
 <style lang="scss">
 .hero {
-  margin: 0 rem-calc(24);
+  margin: rem-calc(0 24 120 24);
   text-align: center;
   position: relative;
   background-image: var(--background-image-mobile);
@@ -62,7 +62,7 @@ export default {
 
   @media screen and (min-width: $breakpoint-tablet) {
     text-align: left;
-    margin: 0 rem-calc(40);
+    margin: rem-calc(0 40 144 40);
     background-image: var(--background-image-tablet);
   }
 
