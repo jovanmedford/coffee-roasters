@@ -7,6 +7,7 @@
             Try our expertly curated artisan coffees from our best roasters 
             delivered directly to your door, at your schedule."
       button-text="Create your plan"
+      img="home/mobile/image-hero-coffeepress.jpg"
     />
   </div>
 </template>
