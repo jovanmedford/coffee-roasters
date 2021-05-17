@@ -1,17 +1,19 @@
 <template>
-  <section class="hero">
+  <section :style="backgroundImage" class="hero">
     <div class="hero__overlay"></div>
     <div class="hero__content">
       <h1 class="heading-2 hero__copy">{{ copy }}</h1>
       <p class="hero__text">
         {{ text }}
       </p>
-      <button class="btn">{{ buttonText }}</button>
+      <button v-if="buttonText" class="btn">{{ buttonText }}</button>
     </div>
   </section>
 </template>
 
 <script>
+import optimizeImage from "../utils/optimizeImage";
+
 export default {
   props: {
     copy: {
@@ -28,6 +30,23 @@ export default {
       type: String,
       default: "",
     },
+    img: {
+      type: String,
+      default: "plan/mobile/image-hero-blackcup.jpg",
+      required: true,
+    },
+  },
+  computed: {
+    backgroundImage: function () {
+      const mobileSlug = optimizeImage(this.img, "mobile");
+      const tabletSlug = optimizeImage(this.img, "tablet");
+      const desktopSlug = optimizeImage(this.img, "desktop");
+      return {
+        "--background-image-mobile": `url(${require(`@/assets/${mobileSlug}`)})`,
+        "--background-image-tablet": `url(${require(`@/assets/${tabletSlug}`)})`,
+        "--background-image-desktop": `url(${require(`@/assets/${desktopSlug}`)})`,
+      };
+    },
   },
 };
 </script>
@@ -37,18 +56,18 @@ export default {
   margin: 0 rem-calc(24);
   text-align: center;
   position: relative;
-  background-image: url(../assets/home/mobile/image-hero-coffeepress.jpg);
+  background-image: var(--background-image-mobile);
   background-size: cover;
   border-radius: 10px;
 
   @media screen and (min-width: $breakpoint-tablet) {
     text-align: left;
     margin: 0 rem-calc(40);
-    background-image: url(../assets/home/tablet/image-hero-coffeepress.jpg);
+    background-image: var(--background-image-tablet);
   }
 
   @media screen and (min-width: $breakpoint-desktop) {
-    background-image: url(../assets/home/desktop/image-hero-coffeepress.jpg);
+    background-image: var(--background-image-desktop);
   }
 }
 
