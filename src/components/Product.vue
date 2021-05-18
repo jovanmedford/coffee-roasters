@@ -39,6 +39,16 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.product__image {
+  width: rem-calc(200);
+  height: rem-calc(150);
+
+  @media screen and (min-width: $breakpoint-tablet) {
+    width: rem-calc(256);
+    height: rem-calc(192);
+  }
+}
+
 .product {
   display: inline-flex;
   flex-wrap: wrap;
@@ -59,16 +69,6 @@ export default {
 .product__description {
   font-size: rem-calc(16);
   line-height: rem-calc(25);
-}
-
-.product__image {
-  width: rem-calc(200);
-  height: rem-calc(150);
-
-  @media screen and (min-width: $breakpoint-tablet) {
-    width: rem-calc(256);
-    height: rem-calc(192);
-  }
 }
 
 .product__content {
