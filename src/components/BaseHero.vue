@@ -2,7 +2,10 @@
   <section :style="backgroundImage" class="hero">
     <div class="hero__overlay"></div>
     <div class="hero__content">
-      <h1 class="heading-2 hero__copy">{{ copy }}</h1>
+      <h1 class="hero__copy"
+        :class="size">
+        {{ copy }}
+      </h1>
       <p class="hero__text">
         {{ text }}
       </p>
