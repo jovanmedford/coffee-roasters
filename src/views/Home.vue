@@ -9,6 +9,7 @@
       button-text="Create your plan"
       img="home/mobile/image-hero-coffeepress.jpg"
     />
+    <SectionCollection />
   </div>
 </template>
 
@@ -17,12 +18,14 @@
 
 import Header from "@/components/Header.vue";
 import BaseHero from "@/components/BaseHero.vue";
+import SectionCollection from "@/components/SectionCollection.vue";
 
 export default {
   name: "Home",
   components: {
     Header,
     BaseHero,
+    SectionCollection,
   },
 };
 </script>
