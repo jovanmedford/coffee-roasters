@@ -31,6 +31,7 @@ section {
   padding: rem-calc(64 24 664 24);
   margin: rem-calc(0 12 717 12);
   position: relative;
+  border-radius: 10px;
 
   @media screen and (min-width: $breakpoint-tablet) {
     padding: rem-calc(56 72 296 72);
