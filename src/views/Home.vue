@@ -10,6 +10,7 @@
       img="home/mobile/image-hero-coffeepress.jpg"
     />
     <SectionCollection />
+    <SectionBenefits />
   </div>
 </template>
 
@@ -19,6 +20,7 @@
 import Header from "@/components/Header.vue";
 import BaseHero from "@/components/BaseHero.vue";
 import SectionCollection from "@/components/SectionCollection.vue";
+import SectionBenefits from "@/components/SectionBenefits.vue";
 
 export default {
   name: "Home",
@@ -26,6 +28,7 @@ export default {
     Header,
     BaseHero,
     SectionCollection,
+    SectionBenefits,
   },
 };
 </script>
