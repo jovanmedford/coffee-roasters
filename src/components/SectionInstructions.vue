@@ -29,16 +29,19 @@
       />
     </svg>
     <InstructionList />
+    <BaseButton class="instructions-section__btn" text="Create Your Plan" />
   </section>
 </template>
 
 <script>
 import InstructionList from "@/components/InstructionList.vue";
+import BaseButton from "@/components/BaseButton.vue";
 
 export default {
   name: "SectionInstructions",
   components: {
     InstructionList,
+    BaseButton,
   },
 };
 </script>
@@ -83,6 +86,15 @@ section {
 
   @media screen and (min-width: $breakpoint-desktop) {
     margin-bottom: rem-calc(67);
+  }
+}
+
+.instructions-section__btn {
+  display: block;
+  margin: 0 auto;
+
+  @media screen and (min-width: $breakpoint-tablet) {
+    margin: 0;
   }
 }
 </style>
