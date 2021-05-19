@@ -12,6 +12,7 @@
     <SectionCollection />
     <SectionBenefits />
     <SectionInstructions />
+    <TheFooter />
   </div>
 </template>
 
@@ -23,6 +24,7 @@ import BaseHero from "@/components/BaseHero.vue";
 import SectionCollection from "@/components/SectionCollection.vue";
 import SectionBenefits from "@/components/SectionBenefits.vue";
 import SectionInstructions from "@/components/SectionInstructions.vue";
+import TheFooter from "@/components/TheFooter.vue";
 
 export default {
   name: "Home",
@@ -32,6 +34,7 @@ export default {
     SectionCollection,
     SectionBenefits,
     SectionInstructions,
+    TheFooter,
   },
 };
 </script>
