@@ -9,15 +9,19 @@
       <p class="hero__text">
         {{ text }}
       </p>
-      <button v-if="buttonText" class="btn">{{ buttonText }}</button>
+      <BaseButton :text="buttonText" />
     </div>
   </section>
 </template>
 
 <script>
 import optimizeImage from "../utils/optimizeImage";
+import BaseButton from "@/components/BaseButton";
 
 export default {
+  components: {
+    BaseButton,
+  },
   props: {
     copy: {
       type: String,
@@ -121,16 +125,5 @@ export default {
   @media screen and (min-width: $breakpoint-tablet) {
     display: none;
   }
-}
-
-.btn {
-  padding: rem-calc(16 32);
-  background-color: $color-primary;
-  border: none;
-  color: white;
-  font-weight: 700;
-  font-size: rem-calc(18);
-  font-family: Fraunces;
-  border-radius: 6px;
 }
 </style>
