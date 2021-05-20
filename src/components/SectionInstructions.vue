@@ -48,7 +48,7 @@ export default {
 
 <style lang="scss" scoped>
 section {
-  margin: rem-calc(0 24);
+  margin: rem-calc(0 24 120 24);
 
   @media screen and (min-width: $breakpoint-tablet) {
     margin: rem-calc(0 40 144 40);
