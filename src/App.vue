@@ -9,7 +9,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   color: $color-text;
   background-color: $color-background;
-  margin: 0;
+  margin: 0;;
 }
 
 h1,
@@ -20,5 +20,9 @@ h5,
 h6 {
   margin: 0;
   font-family: Fraunces;
+}
+
+ul {
+  padding: 0;
 }
 </style>
