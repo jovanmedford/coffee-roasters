@@ -9,6 +9,7 @@
       img="about/desktop/image-hero-whitecup.jpg"
     />
     <SectionMissionStatement />
+    <SectionValueProposition />
     <TheFooter />
   </div>
 </template>
@@ -19,7 +20,8 @@
 import Header from "@/components/Header.vue";
 import BaseHero from "@/components/BaseHero.vue";
 import TheFooter from "@/components/TheFooter.vue";
-import SectionMissionStatement from "@/components/SectionMissionStatement.vue"
+import SectionMissionStatement from "@/components/SectionMissionStatement.vue";
+import SectionValueProposition from "@/components/SectionValueProposition.vue";
 
 export default {
   name: "Home",
@@ -27,6 +29,7 @@ export default {
     Header,
     BaseHero,
     SectionMissionStatement,
+    SectionValueProposition,
     TheFooter,
   },
 };
