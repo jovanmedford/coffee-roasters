@@ -10,6 +10,7 @@
     />
     <SectionMissionStatement />
     <SectionValueProposition />
+    <SectionLocation />
     <TheFooter />
   </div>
 </template>
@@ -22,6 +23,7 @@ import BaseHero from "@/components/BaseHero.vue";
 import TheFooter from "@/components/TheFooter.vue";
 import SectionMissionStatement from "@/components/SectionMissionStatement.vue";
 import SectionValueProposition from "@/components/SectionValueProposition.vue";
+import SectionLocation from "@/components/SectionLocation";
 
 export default {
   name: "Home",
@@ -30,6 +32,7 @@ export default {
     BaseHero,
     SectionMissionStatement,
     SectionValueProposition,
+    SectionLocation,
     TheFooter,
   },
 };
