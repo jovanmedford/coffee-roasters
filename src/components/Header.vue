@@ -9,12 +9,14 @@
         :to="link.to"
         >{{ link.text }}
       </router-link>
-      <i class="header__dropdown-icon fa fa-bars"></i>
+      <DropdownMenu />
     </nav>
   </header>
 </template>
 
 <script>
+import DropdownMenu from "@/components/DropdownMenu.vue";
+
 export default {
   data() {
     return {
@@ -24,6 +26,9 @@ export default {
         { text: "Create Your Plan", to: "/create-your-plan" },
       ],
     };
+  },
+  components: {
+    DropdownMenu,
   },
 };
 </script>
