@@ -2,19 +2,31 @@
   <div class="create-your-plan">
     <Header />
     <BaseHero
-      copy="Great coffee made simple."
-      text="Start your mornings with the world’s best coffees. 
-            Try our expertly curated artisan coffees from our best roasters 
-            delivered directly to your door, at your schedule."
-      button-text="Create your plan"
-      img="home/mobile/image-hero-coffeepress.jpg"
+      copy="Create a plan"
+      text="Build a subscription plan that best fits your needs. 
+            We offer an assortment of the best artisan coffees from around 
+            the globe delivered fresh to your door."
+      img="plan/mobile/image-hero-blackcup.jpg"
     />
+    <SectionInstructions />
+    <TheFooter />
   </div>
 </template>
 
 <script>
+import Header from "@/components/Header.vue";
+import BaseHero from "@/components/BaseHero.vue";
+import SectionInstructions from "@/components/SectionInstructions.vue";
+import TheFooter from "@/components/TheFooter.vue";
+
 export default {
   name: "CreateYourPlan",
+  components: {
+    Header,
+    BaseHero,
+    SectionInstructions,
+    TheFooter,
+  },
 };
 </script>
 
