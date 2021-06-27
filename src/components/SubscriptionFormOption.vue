@@ -1,6 +1,12 @@
 <template>
   <label>
-    <input type="radio" :id="inputId" :name="inputName" :value="inputValue" />
+    <input
+      type="radio"
+      :id="inputId"
+      :name="inputName"
+      :value="inputValue"
+      @click="$emit('chooseOption', inputValue)"
+    />
     <div class="subscription-form__option">
       <h3 class="subscription-form__option-title">{{ heading }}</h3>
       <p class="subscription-form__option-content">
@@ -13,6 +19,7 @@
 <script>
 export default {
   name: "SubscriptionFormOption",
+  emits: ["chooseOption"],
   props: {
     heading: {
       type: String,
