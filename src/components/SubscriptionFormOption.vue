@@ -1,41 +1,45 @@
 <template>
-  <div class="subscription-form-element">
-    <h2 class="subscription-form__question">How do you drink your coffee?</h2>
-    <div class="subscription-form__option-container">
-      <label>
-        <input type="radio" id="option" name="preference" value="capsule" />
-        <div class="subscription-form__option">
-          <h3 class="subscription-form__option-title">Capsule</h3>
-          <p class="subscription-form__option-content">
-            Compatible with Nespresso systems and similar brewers
-          </p>
-        </div>
-      </label>
-      <label>
-        <input type="radio" id="option2" name="preference" value="filter" />
-        <div class="subscription-form__option">
-          <h3 class="subscription-form__option-title">Filter</h3>
-          <p class="subscription-form__option-content">
-            For pour over or drip methods like Aeropress, Chemex, and V60
-          </p>
-        </div>
-      </label>
-      <label>
-        <input type="radio" id="option2" name="preference" value="filter" />
-        <div class="subscription-form__option">
-          <h3 class="subscription-form__option-title">Espresso</h3>
-          <p class="subscription-form__option-content">
-            Dense and finely ground beans for an intense, flavorful experience
-          </p>
-        </div>
-      </label>
+  <label>
+    <input type="radio" :id="inputId" :name="inputName" :value="inputValue" />
+    <div class="subscription-form__option">
+      <h3 class="subscription-form__option-title">{{ heading }}</h3>
+      <p class="subscription-form__option-content">
+        {{ content }}
+      </p>
     </div>
-  </div>
+  </label>
 </template>
 
 <script>
 export default {
   name: "SubscriptionFormOption",
+  props: {
+    heading: {
+      type: String,
+      required: true,
+      default: "Enter Option Heading",
+    },
+    content: {
+      type: String,
+      required: true,
+      default: "Short description about the product",
+    },
+    inputName: {
+      type: String,
+      required: true,
+      default: "preferences",
+    },
+    inputValue: {
+      type: String,
+      required: true,
+      default: "capsule",
+    },
+    inputId: {
+      type: String,
+      required: true,
+      default: "option1",
+    },
+  },
 };
 </script>
 
