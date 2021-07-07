@@ -5,7 +5,7 @@
       :id="inputId"
       :name="inputName"
       :value="inputValue"
-      @click="$emit('chooseOption', inputValue)"
+      @click="$emit('chooseValue', inputValue)"
     />
     <div class="subscription-form__option">
       <h3 class="subscription-form__option-title">{{ heading }}</h3>
@@ -19,8 +19,11 @@
 <script>
 export default {
   name: "SubscriptionFormOption",
-  emits: ["chooseOption"],
+  emit: ["chooseValue"],
   props: {
+    modelValue: {
+      defalut: "",
+    },
     heading: {
       type: String,
       required: true,
@@ -45,6 +48,11 @@ export default {
       type: String,
       required: true,
       default: "option1",
+    },
+  },
+  methods: {
+    updateInput() {
+      this.$emit("change", this.inputValue);
     },
   },
 };

@@ -1,6 +1,7 @@
 <template>
   <div class="subscription-form-element">
     <h2 class="subscription-form__question">{{ heading }}</h2>
+
     <div class="subscription-form__option-container">
       <SubscriptionFormOption
         :key="option.id"
@@ -10,49 +11,27 @@
         :inputId="option.inputId"
         :inputName="option.inputName"
         :inputValue="option.inputValue"
-        v-model="picked"
-        @choose-option="picked = $event"
+        @choose-value="$emit('chooseValue', $event)"
       />
     </div>
   </div>
-  <p>{{ picked }}</p>
 </template>
 
 <script>
 import SubscriptionFormOption from "./SubscriptionFormOption.vue";
 export default {
   name: "SubscriptionFormElement",
+  emits: ["chooseValue"],
   components: { SubscriptionFormOption },
-  data() {
-    return {
-      heading: "How do you drink your coffee",
-      picked: "capsule",
-      options: [
-        {
-          heading: "Capsule",
-          content: "Compatible with Nespresso systems and similar brewers",
-          inputId: "option 1",
-          inputName: "preferences",
-          inputValue: "capsule",
-        },
-        {
-          heading: "Filter",
-          content:
-            "For pour over or drip methods like Aeropress, Chemex, and V60",
-          inputId: "option 2",
-          inputName: "preferences",
-          inputValue: "filter",
-        },
-        {
-          heading: "Espresso",
-          content:
-            "Dense and finely ground beans for an intense, flavorful experience",
-          inputId: "option 3",
-          inputName: "preferences",
-          inputValue: "espresso",
-        },
-      ],
-    };
+  props: {
+    heading: {
+      type: String,
+      required: true,
+      default: "Enter a question.",
+    },
+    options: {
+      type: Array,
+    },
   },
 };
 </script>
