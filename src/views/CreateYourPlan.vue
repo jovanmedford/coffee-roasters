@@ -9,7 +9,7 @@
       img="plan/mobile/image-hero-blackcup.jpg"
     />
     <SectionInstructions />
-    <SubscriptionFormElement />
+    <SubscriptionForm />
     <TheFooter />
   </div>
 </template>
@@ -18,7 +18,7 @@
 import Header from "@/components/Header.vue";
 import BaseHero from "@/components/BaseHero.vue";
 import SectionInstructions from "@/components/SectionInstructions.vue";
-import SubscriptionFormElement from "@/components/SubscriptionFormElement.vue";
+import SubscriptionForm from "@/components/SubscriptionForm.vue";
 import TheFooter from "@/components/TheFooter.vue";
 
 export default {
@@ -27,7 +27,7 @@ export default {
     Header,
     BaseHero,
     SectionInstructions,
-    SubscriptionFormElement,
+    SubscriptionForm,
     TheFooter,
   },
 };
