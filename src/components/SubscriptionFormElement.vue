@@ -1,7 +1,6 @@
 <template>
   <div class="subscription-form-element">
     <h2 class="subscription-form__question">{{ heading }}</h2>
-
     <div class="subscription-form__option-container">
       <SubscriptionFormOption
         :key="option.id"
@@ -9,7 +8,7 @@
         :heading="option.heading"
         :content="option.content"
         :inputId="option.inputId"
-        :inputName="option.inputName"
+        :inputName="name"
         :inputValue="option.inputValue"
         @choose-value="$emit('chooseValue', $event)"
       />
@@ -28,6 +27,10 @@ export default {
       type: String,
       required: true,
       default: "Enter a question.",
+    },
+    name: {
+      type: String,
+      default: "preference",
     },
     options: {
       type: Array,
