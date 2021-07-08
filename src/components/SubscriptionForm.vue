@@ -1,12 +1,11 @@
 <template>
-  <p>{{ picked }}</p>
   <form class="subscription-form">
     <SubscriptionFormElement
       v-for="element in elements"
       :key="element.heading"
       :heading="element.heading"
       :options="element.options"
-      @choose-value="picked = $event"
+      @choose-value="storeChoice(element.name, $event)"
     />
   </form>
 </template>
@@ -18,7 +17,11 @@ export default {
   components: { SubscriptionFormElement },
   data() {
     return {
-      picked: "",
+      preference: "",
+      bean: "",
+      quantity: "",
+      grind: "",
+      delivery: "",
       elements: [
         {
           heading: "How do you drink your coffee?",
@@ -168,6 +171,11 @@ export default {
         },
       ],
     };
+  },
+  methods: {
+    storeChoice(param, choice) {
+      this[param] = choice;
+    },
   },
 };
 </script>
