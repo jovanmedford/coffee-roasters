@@ -9,13 +9,22 @@
       @choose-value="storeChoice(element.name, $event)"
     />
   </form>
+  <SubscriptionOrderSummary
+    :preferences="preference"
+    :beanType="bean"
+    :quantity="quantity"
+    :grindOption="grind"
+    :delivery="delivery"
+  />
 </template>
 
 <script>
 import SubscriptionFormElement from "./SubscriptionFormElement.vue";
+import SubscriptionOrderSummary from "./SubscriptionOrderSummary.vue";
+
 export default {
   name: "SubscriptionForm",
-  components: { SubscriptionFormElement },
+  components: { SubscriptionFormElement, SubscriptionOrderSummary },
   data() {
     return {
       preference: "",
