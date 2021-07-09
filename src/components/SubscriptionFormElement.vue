@@ -1,8 +1,14 @@
 <template>
   <div class="subscription-form-element">
-    <h2 class="subscription-form__question" @click="isOpen = !isOpen">
-      {{ heading }}
-    </h2>
+    <div class="subscription-form-element__header" @click="toggleMenu">
+      <h2 class="subscription-form__question">
+        {{ heading }}
+      </h2>
+      <i
+        :style="caretStyle"
+        class="subscription-form__question-icon fas fa-2x fa-angle-down"
+      ></i>
+    </div>
     <transition name="slide-fade">
       <div class="subscription-form__option-container" v-if="isOpen">
         <SubscriptionFormOption
@@ -29,6 +35,7 @@ export default {
   data() {
     return {
       isOpen: false,
+      caretPosition: 0,
     };
   },
   props: {
@@ -45,6 +52,17 @@ export default {
       type: Array,
     },
   },
+  methods: {
+    toggleMenu() {
+      this.isOpen = !this.isOpen;
+      this.caretPosition += 180;
+    },
+  },
+  computed: {
+    caretStyle() {
+      return `transform: rotate(${this.caretPosition}deg);`;
+    },
+  },
 };
 </script>
 
@@ -57,9 +75,10 @@ export default {
   }
 }
 
-.subscription-form__question {
-  color: $color-text-light;
-  font-size: rem-calc(24);
+.subscription-form-element__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   margin-bottom: rem-calc(32);
 
   &:hover {
@@ -68,8 +87,22 @@ export default {
 
   @media screen and (min-width: $breakpoint-tablet) {
     margin-bottom: rem-calc(40);
-    font-size: rem-calc(32);
   }
+}
+
+.subscription-form__question {
+  color: $color-text-light;
+  font-size: rem-calc(24);
+  max-width: rem-calc(240);
+
+  @media screen and (min-width: $breakpoint-tablet) {
+    font-size: rem-calc(32);
+    max-width: 100%;
+  }
+}
+
+.subscription-form__question-icon {
+  color: $color-primary;
 }
 
 .slide-fade-enter-active {
