@@ -1,18 +1,22 @@
 <template>
   <div class="subscription-form-element">
-    <h2 class="subscription-form__question">{{ heading }}</h2>
-    <div class="subscription-form__option-container">
-      <SubscriptionFormOption
-        :key="option.id"
-        v-for="option in options"
-        :heading="option.heading"
-        :content="option.content"
-        :inputId="option.inputId"
-        :inputName="name"
-        :inputValue="option.inputValue"
-        @choose-value="$emit('chooseValue', $event)"
-      />
-    </div>
+    <h2 class="subscription-form__question" @click="isOpen = !isOpen">
+      {{ heading }}
+    </h2>
+    <transition name="slide-fade">
+      <div class="subscription-form__option-container" v-if="isOpen">
+        <SubscriptionFormOption
+          :key="option.id"
+          v-for="option in options"
+          :heading="option.heading"
+          :content="option.content"
+          :inputId="option.inputId"
+          :inputName="name"
+          :inputValue="option.inputValue"
+          @choose-value="$emit('chooseValue', $event)"
+        />
+      </div>
+    </transition>
   </div>
 </template>
 
@@ -22,6 +26,11 @@ export default {
   name: "SubscriptionFormElement",
   emits: ["chooseValue"],
   components: { SubscriptionFormOption },
+  data() {
+    return {
+      isOpen: false,
+    };
+  },
   props: {
     heading: {
       type: String,
@@ -53,10 +62,31 @@ export default {
   font-size: rem-calc(24);
   margin-bottom: rem-calc(32);
 
+  &:hover {
+    cursor: pointer;
+  }
+
   @media screen and (min-width: $breakpoint-tablet) {
     margin-bottom: rem-calc(40);
     font-size: rem-calc(32);
   }
+}
+
+.slide-fade-enter-active {
+  transition: all 0.3s ease-out;
+}
+
+.slide-fade-leave-active {
+  transition: all 0.4s ease-in;
+}
+
+.slide-fade-enter-from {
+  transform: translateY(-20px);
+}
+
+.slide-fade-leave-to {
+  transform: translateY(-70px);
+  opacity: 0;
 }
 
 .subscription-form__option-container {
