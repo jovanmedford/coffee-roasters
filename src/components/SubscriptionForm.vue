@@ -1,14 +1,17 @@
 <template>
-  <form class="subscription-form">
-    <SubscriptionFormElement
-      v-for="element in elements"
-      :key="element.heading"
-      :heading="element.heading"
-      :name="element.name"
-      :options="element.options"
-      @choose-value="storeChoice(element.name, $event)"
-    />
-  </form>
+  <section class="subscription-section">
+    <subscriptionContentList />
+    <form class="subscription-form">
+      <SubscriptionFormElement
+        v-for="element in elements"
+        :key="element.heading"
+        :heading="element.heading"
+        :name="element.name"
+        :options="element.options"
+        @choose-value="storeChoice(element.name, $event)"
+      />
+    </form>
+  </section>
   <SubscriptionOrderSummary
     :preferences="preference"
     :beanType="bean"
@@ -21,10 +24,15 @@
 <script>
 import SubscriptionFormElement from "./SubscriptionFormElement.vue";
 import SubscriptionOrderSummary from "./SubscriptionOrderSummary.vue";
+import SubscriptionContentList from "./SubscriptionContentListItem.vue";
 
 export default {
   name: "SubscriptionForm",
-  components: { SubscriptionFormElement, SubscriptionOrderSummary },
+  components: {
+    SubscriptionFormElement,
+    SubscriptionOrderSummary,
+    SubscriptionContentList,
+  },
   data() {
     return {
       preference: "",
@@ -176,10 +184,30 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.subscription-section {
+  @media screen and (min-width: $breakpoint-desktop) {
+    display: flex;
+    justify-content: space-between;
+    margin: rem-calc(0 165);
+  }
+}
+
+.subscription-contents {
+  display: none;
+  @media screen and (min-width: $breakpoint-desktop) {
+    display: block;
+  }
+}
+
 .subscription-form {
   @media screen and (min-width: $breakpoint-tablet) {
+    margin: rem-calc(0 40);
+  }
+
+  @media screen and (min-width: $breakpoint-desktop) {
     max-width: rem-calc(730);
-    margin: 0 auto;
+    width: 100%;
+    margin: 0;
   }
 }
 </style>
